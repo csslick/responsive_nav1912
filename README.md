@@ -1,2 +1,2 @@
 # responsive_nav1912
-respopnsive navigation
+grid system & respopnsive navigation
