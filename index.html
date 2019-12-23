@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+    a { text-decoration: none;}
+    ul{ list-style-type: none;}
+    .row::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    [class*="col-"] {
+      float: left;
+      padding: 15px;
+      /* outline: 1px solid red; */
+    }
+
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+    /* Desktop */
+    header { 
+      position: relative;
+      background: #ccc;
+      height: 80px;
+    }
+    header > h1 { height: 80px;}
+    nav#gnb { 
+      text-align: right;
+      position: relative;
+      height: 80px;
+      padding: 0;
+      line-height: 80px;
+    }
+    nav > ul {
+      /* outline: 1px solid green; */
+      height: 80px;
+      
+    }
+    nav > ul > li {
+      display: inline-block;
+      margin-left: 20px; margin-right: 20px;;
+    }
+    #toggle { display: none;}
+
+
+    @media screen and (max-width: 768px) {
+      /* For mobile phones: */
+      [class*="col-"] {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      nav#gnb, nav > ul { 
+        height: auto;
+      }
+      #gnb { display: none;}
+      #gnb.show { 
+        display: block;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+
+      #toggle { 
+        position: absolute;
+        display: block;
+        right: 20px; top: 20px;
+        padding: 10px;
+      }
+      #gnb > ul > li {
+        display: block;
+        text-align: left;
+        line-height: 2em;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <header class="row">
+    <h1 class="col-4">responsive</h1>
+    <nav id="gnb" class="col-8">
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">portfolio</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </nav>
+    <button id="toggle">toggle</button>
+
+  </header>
+
+
+  <script>
+    var toggle = document.querySelector('#toggle');
+    toggle.addEventListener('click', function(){
+      var gnb = document.querySelector('#gnb');
+      gnb.classList.toggle('show');
+    })
+  </script>
+</body>
+</html>
